@@ -2,8 +2,8 @@ import accounting from "accounting";
 import React from "react";
 import useStyles from "./styles";
 import { Button, Typography } from "@material-ui/core";
-import { getBasketTotal } from "../../reducer";
 import { useStateValue } from "../../StateProvider";
+import { getBasketTotal } from "../../reducer";
 
 const Total = () => {
   const classes = useStyles();
