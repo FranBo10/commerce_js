@@ -9,12 +9,20 @@ import Typography from "@mui/material/Typography";
 import useStyles from "../CheckoutCard/styles";
 import accounting from "accounting";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import { useStateValue } from "../../StateProvider";
+import { actionTypes } from "../../reducer";
 
 export default function CheckoutCard({
   product: { id, name, productType, price, rating, image },
 }) {
   const classes = useStyles();
+  const [{ basket }, dispatch] = useStateValue();
+
+  const removeItem = () =>
+    dispatch({
+      type: actionTypes.REMOVE_ITEM,
+      id,
+    });
 
   return (
     <Card className={classes.root} sx={{ maxWidth: 345 }}>
@@ -48,7 +56,7 @@ export default function CheckoutCard({
             <p>&#11088;</p>
           ))}
         <IconButton aria-label="Delete Item">
-          <DeleteIcon />
+          <DeleteIcon fontSize="large" onClick={removeItem} />
         </IconButton>
       </CardActions>
     </Card>

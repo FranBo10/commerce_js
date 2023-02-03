@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import { Badge } from "@material-ui/core";
 import useStyles from "./styles";
 import { ShoppingCart } from "@material-ui/icons";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 import logo from "../../assets/img/mlogo.png";
 import { useStateValue } from "../../StateProvider";
 
@@ -49,7 +49,7 @@ const Navbar = () => {
             <Button variant="outlined">
               <strong>Sign In</strong>
             </Button>
-            <Link onClick={handleLink} to="checkout-page">
+            <Link onClick={handleLink} to={"/checkout"}>
               <IconButton aria-label="show cart items" color="inherit">
                 <Badge badgeContent={basket?.length} color="secondary">
                   <ShoppingCart fontSize="large" color="primary" />

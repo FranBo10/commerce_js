@@ -1,17 +1,15 @@
 import Products from "./components/Products/Products";
 import Navbar from "./components/Navbar/Navbar";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <Router>
+    <Fragment>
       <Navbar />
-      <Routes>
-        <Route path="checkout-page" element={<CheckoutPage />} />
-        <Route path="/" element={<Products />} />
-      </Routes>
-    </Router>
+      <CheckoutPage />
+      <Products />
+    </Fragment>
   );
 }
 
